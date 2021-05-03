@@ -1,0 +1,45 @@
+<div class="cabecalho">
+    <p class="po-font-subtitle">Cadastro de Vagas</p>
+</div>
+<div>
+    <app-job-detail-form></app-job-detail-form>
+</div>
+<div class="list">
+    <po-accordion>        
+        <po-accordion-item p-label="Vagas Cadastradas">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Carga Horária</th>
+                        <th>Empresa</th> 
+                        <th> Tipo</th>
+                        <th>Editar</th>                 
+                        <th>Excluir </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pd of service.list; index as i">                    
+                        <td (click)="populateForm(pd)">{{pd.name}}</td>                  
+                        <td (click)="populateForm(pd)">{{pd.workLoad}}</td>                  
+                        <td (click)="populateForm(pd)">{{pd.company}}</td> 
+                        <td (click)="populateForm(pd)">{{returnTipoVaga(pd.type)}}</td> 
+                        <td>
+                            <span class="po-icon po-icon po-icon-edit" (click)="populateForm(pd)"></span>                      
+                          </td>                                                                 
+                        <td>
+                            <span class="po-icon po-icon-delete text-danger" (click)="onDelete(pd.jobDetailId)"></span>                      
+                        </td>                                                                 
+                    </tr>                                      
+                </tbody>         
+            </table>                  
+       </po-accordion-item>  
+    </po-accordion>         
+</div>
+<footer> Desenvolvido por: Karine Alessandra Córdova</footer>
+
+
+
+
+
+

@@ -1,0 +1,143 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="curriculoDetailId" [value]="service.formData.curriculoDetailId" />
+    <br>
+    <p class="subtitulo"> Dados Pessoais</p> 
+    <div class="form-group">         
+        <label class="po-font-text-bold">NOME COMPLETO</label>
+        <po-input name="name" p-placeholder="Nome Completo" 
+        name="name" #name="ngModel" [(ngModel)]="service.formData.name"
+        required [class.invalid]="name.invalid &#038;&#038; name.touched" auto-complete="no">
+        </po-input> 
+    </div>  
+    <div class="form-row">
+        <div class="form-group po-md-4">
+            <label class="po-font-text-bold">CPF</label>       
+            <po-input  name="cpf" p-placeholder="CPF" p-clean p-help="Ex.:999.999.999-99"
+            #cpf="ngModel" [(ngModel)]="service.formData.cpf" 
+            required  [class.invalid]="cpf.invalid &#038;&#038; cpf.touched" p-mask="999.999.999-99" 
+            p-mask-format-model="true"> 
+            </po-input>
+        </div>
+        <div class="form-group po-md-4">
+            <label class="po-font-text-bold">DATA DE NASCIMENTO</label>
+            <po-datepicker name="birthDate" p-placeholder="Data de Nascimento" p-help="Ex.:DD/MM/AAAA"
+            #birthDate="ngModel" [(ngModel)]="service.formData.birthDate" 
+            required  [class.invalid]="birthDate.invalid &#038;&#038; birthDate.touched"> </po-datepicker>
+        </div>
+        <div class="form-group po-md-4">
+            <label class="po-font-text-bold">SEXO</label>
+            <po-radio-group name="sexo" p-help=""
+            [p-options]="[
+                { label: 'Feminino', value: '1' },
+                { label: 'Masculino', value: '2' }
+            ]"
+            #sexo="ngModel" [(ngModel)]="service.formData.sexo" 
+            required  [class.invalid]="sexo.invalid &#038;&#038; sexo.touched"> </po-radio-group>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group po-md-4">
+            <label class="po-font-text-bold">TELEFONE</label>       
+            <po-input  name="phone" p-placeholder="Telefone" p-clean p-help="(99)999999999"
+            p-required="true" required #phone="ngModel" [(ngModel)]="service.formData.phone" 
+            required [class.invalid]="phone.invalid &#038;&#038; phone.touched" p-mask="(99)999999999"
+            p-mask-format-model="true"> 
+            </po-input>
+        </div>
+        <div class="form-group po-md-8">
+            <div class="form-group">   
+                <label class="po-font-text-bold">EMAIL</label>  
+                <po-email name="email" p-placeholder="Email" p-required="true"
+                #email="ngModel" [(ngModel)]="service.formData.email" p-help="xxxx@xxxx.com"
+                required [class.invalid]="email.invalid &#038;&#038; email.touched">
+                </po-email>  
+            </div> 
+        </div>
+    </div>
+    <p class="subtitulo"> Formação Acadêmica</p>
+        <div class="form-row">
+            <div class="form-group po-md-8">
+                <label class="po-font-text-bold">NOME DO CURSO</label>       
+                <po-input  name="course" p-placeholder="Nome do Curso" p-clean 
+                p-required="false" #course="ngModel" [(ngModel)]="service.formData.course" 
+                > 
+                </po-input>
+            </div>
+            <div class="form-group po-md-4">
+                <div class="form-group">   
+                    <label class="po-font-text-bold">DATA DE TÉRMINO</label>  
+                    <po-datepicker name="dateCourse" p-placeholder="Data de Término" p-required="false"
+                    #dateCourse="ngModel" [(ngModel)]="service.formData.dateCourse" 
+                    >
+                    </po-datepicker>  
+                </div>                       
+
+            </div>
+        </div>
+        
+        <p  class="subtitulo"> Experiências Profissionais</p>
+        <div class="form-row">             
+            <div class="form-group po-md-12">
+                <label class="po-font-text-bold">VOCÊ ESTÁ TRABALHANDO ATUALMENTE?</label>
+                <po-radio-group name="working" 
+                [p-options]="[
+                { label: 'Sim', value: '1' },
+                { label: 'Não', value: '2' }
+                ]"
+                #working="ngModel" [(ngModel)]="service.formData.working" 
+                required  [class.invalid]="working.invalid &#038;&#038; working.touched"> </po-radio-group>
+            </div>
+        </div>
+        <div class="form-row">             
+            <div class="form-group po-md-8">
+                <label class="po-font-text-bold">NOME DA EMPRESA</label>       
+                <po-input  name="company" p-placeholder="Nome da Empresa" p-clean 
+                p-required="false"  #company="ngModel" [(ngModel)]="service.formData.company" 
+                    > 
+                </po-input>
+            </div>
+            <div class="form-group po-md-4">
+                <div class="form-group">   
+                    <label class="po-font-text-bold">CARGO/FUNÇÃO</label>  
+                    <po-input name="role" p-placeholder="Cargo/Função" p-required="false"
+                    #role="ngModel" [(ngModel)]="service.formData.role" 
+                    >
+                    </po-input>  
+                </div> 
+            </div>                  
+        
+        </div>
+        <div class="form-row">
+            <div class="form-group po-md-6">
+                <label class="po-font-text-bold">DATA DE ENTRADA</label>       
+                <po-datepicker  name="dataEntrada" p-placeholder="Data de Entrada" p-clean 
+                p-required="false" p-help="Ex.:DD/MM/AAAA"
+                    #dataEntrada="ngModel" [(ngModel)]="service.formData.dataEntrada" 
+                    > 
+                </po-datepicker>
+            </div>
+            <div class="form-group po-md-6">
+                <div class="form-group">   
+                    <label class="po-font-text-bold">DATA DE SAÍDA</label>  
+                    <po-datepicker name="dataSaida" p-placeholder="Data de Saída" p-required="false"
+                    p-help="Ex.:DD/MM/AAAA" p-required="false"
+                    #dataSaida="ngModel" [(ngModel)]="service.formData.dataSaida" 
+                    >
+                    </po-datepicker>  
+
+                </div> 
+            </div>                  
+        
+        </div>
+        <div class="form-group">
+            <po-textarea name="activities" p-label="Descrição das Atividades do Cargo/Função"
+                #activities="ngModel" [(ngModel)]="service.formData.activities">  </po-textarea>
+            
+        </div>   
+        <br> 
+        <div class="form-group">
+            <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">CADASTRAR</button>
+        </div>        
+</form>
+
+

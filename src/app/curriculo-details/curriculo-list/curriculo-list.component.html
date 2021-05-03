@@ -1,0 +1,67 @@
+<div class="cabecalho">
+    <p class="po-font-subtitle">DashBoard Currículos</p>
+</div>    
+<div class="form-group po-md-6">
+    <po-chart [p-series]="[{ label: 'Sexo Feminino', data: total_sexo1 }, 
+                           { label: 'Sexo Masculino', data: total_sexo2 },]">
+    </po-chart>
+</div>
+<div class="form-group po-md-6">
+    <po-chart [p-series]="[
+    { label: 'Trabalhando', data: total_tipo1 },
+    { label: 'Não está Trabalhando', data: total_tipo2 }, ]" >
+    </po-chart>
+</div>
+
+<div class="form-group po-md-12">
+    <po-chart [p-series]="[{ label: 'Quantidade de Curriculos', data: calcularTotal2() }]">
+    </po-chart>
+</div>
+
+<div class="list">
+
+<p class="titulodash"> Currículos Cadastrados</p>
+   
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Sexo</th>
+                <th>Trabalhando</th>               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pd of service.list; index as i">
+            
+                <td class="list">{{pd.name}}</td>
+                <td class="list">{{pd.cpf}}</td>
+                <td class="list">{{pd.phone}}</td>                  
+                <td class="list">{{pd.email}}</td>   
+                <td class="list">{{returnSexo(pd.sexo)}}</td> 
+                <td class="list">{{returnWorking(pd.working)}}</td>                                                                
+                {{calcularTotal(i)}}       
+                                                                                                              
+            </tr>         
+                                                                            
+        </tbody>                   
+    </table>      
+</div>
+<footer> Desenvolvido por: Karine Alessandra Córdova</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

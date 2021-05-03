@@ -1,0 +1,41 @@
+   <div class="cabecalho">
+        <p class="po-font-subtitle">Cadastro de Currículos</p>
+   </div>
+   <div>
+        <app-curriculo-detail-form></app-curriculo-detail-form>
+   </div> 
+   <div class="list">
+        <po-accordion>
+            <po-accordion-item p-label="Currículos Cadastrados">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Nome</th>                            
+                            <th>Telefone</th>
+                            <th> CPF </th>
+                            <th>Trabalhando</th>
+                            <th>Editar </th>
+                            <th>Excluir </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let pd of service.list ">
+                            
+                            <td (click)="populateForm(pd)">{{pd.name}}</td>
+                            <td (click)="populateForm(pd)">{{pd.phone}}</td>
+                            <td (click)="populateForm(pd)">{{pd.cpf}}  </td>
+                                              
+                            <td (click)="populateForm(pd)">{{returnWorking(pd.working)}}</td>
+                            <td>
+                                <span class="po-icon po-icon po-icon-edit" (click)="populateForm(pd)"></span>                      
+                            </td>                         
+                            <td>
+                                <span class="po-icon po-icon-delete text-danger" (click)="onDelete(pd.curriculoDetailId)"></span>                      
+                            </td>               
+                        </tr>
+                    </tbody>                    
+                </table>                 
+            </po-accordion-item>  
+        </po-accordion>         
+    </div>
+<footer> Desenvolvido por: Karine Alessandra Córdova</footer>

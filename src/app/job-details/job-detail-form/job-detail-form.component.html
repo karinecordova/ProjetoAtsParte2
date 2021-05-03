@@ -1,0 +1,43 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="jobDetailId" [value]="service.formData.jobDetailId" />
+    <br>
+    <p class="subtitulo">  Principais Informações</p> 
+    <div class="form-group">         
+        <label class="po-font-text-bold">FUNÇÃO/CARGO</label>
+        <po-input name="name" p-placeholder="Nome da Função ou Cargo" p-required="true"
+        name="name" #name="ngModel" [(ngModel)]="service.formData.name"
+        required [class.invalid]="name.invalid &#038;&#038; name.touched" auto-complete="no" >
+        </po-input> 
+    </div>  
+    <div class="form-row">
+        <div class="form-group po-md-6">          
+            <label class="po-font-text-bold">CARGA HORÁRIA</label>       
+            <po-input  name="workLoad" p-placeholder="Carga Horária" p-clean 
+            #workLoad="ngModel" [(ngModel)]="service.formData.workLoad" 
+            required  [class.invalid]="workLoad.invalid &#038;&#038; workLoad.touched" > 
+            </po-input>
+        </div>
+        <div class="form-group po-md-6">   
+            <label class="po-font-text-bold">TIPO DA VAGA</label>                 
+            <po-select   name="type" [p-options]="[{ label: 'Presencial', value: '1' },
+            { label: 'Remota', value: '2' }]" #type="ngModel" [(ngModel)]="service.formData.type" >
+        </po-select>
+        </div>
+    </div>
+    <div class="form-group">  
+            <label class="po-font-text-bold">NOME DA EMPRESA</label>
+            <po-input name="company" p-placeholder="Nome da Empresa" 
+            #company="ngModel" [(ngModel)]="service.formData.company" 
+            required  [class.invalid]="company.invalid &#038;&#038; company.touched"> </po-input>
+        
+    </div>
+    <div class="form-group">
+        <label class="po-font-text-bold" >DESCRIÇÃO DAS ATIVIDADES DA VAGA</label>
+        <po-textarea name="description" #description="ngModel" [(ngModel)]="service.formData.description"
+        required  [class.invalid]="company.invalid &#038;&#038; company.touched"> </po-textarea>        
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">CADASTRAR</button>
+    </div>
+</form>
+        

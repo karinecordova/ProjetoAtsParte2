@@ -1,0 +1,51 @@
+    <div class="cabecalho">
+        <p class="po-font-subtitle">DashBoard Vagas</p>
+    </div>    
+    <div class="form-group po-md-6">
+        <po-chart [p-series]="[{ label: 'Quantidade de Vagas', data: calcularTotal2() }]">
+        </po-chart>
+    </div>
+    <div class="form-group po-md-6">
+        <po-chart [p-series]="[
+        { label: 'Vagas Presenciais', data: total_tipo1 },
+        { label: 'Vagas Remotas', data: total_tipo2 }, ]" >
+        </po-chart>
+    </div>
+
+    <div class="list">
+
+    <p  class="titulodash"> Vagas Cadastradas</p>
+       
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Nome</th>
+                    <th>Carga Horária</th>
+                    <th>Empresa</th> 
+                    <th>Tipo</th>                                 
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pd of service.list; index as i">
+                
+                    <td class="list">{{pd.name}}</td>                  
+                    <td class="list">{{pd.workLoad}}</td>                  
+                    <td class="list">{{pd.company}}</td> 
+                    <td class="list">{{returnTipoVaga(pd.type)}}</td>                                                                 
+                        {{calcularTotal(i)}}               
+                                                                                                                  
+                </tr>         
+                                                                                
+            </tbody>                   
+        </table>         
+        
+    </div>
+<footer> Desenvolvido por: Karine Alessandra Córdova</footer>
+
+
+
+
+
+
+
