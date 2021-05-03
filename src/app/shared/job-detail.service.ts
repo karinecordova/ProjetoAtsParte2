@@ -8,7 +8,7 @@ import { JobDetail } from './job-detail.model';
 export class JobDetailService {
 
   formData:JobDetail= new JobDetail();
-  readonly baseURL = 'http://localhost:32404/api/JobDetail';
+  readonly baseURL = 'http://localhost:32404/api/JobDetails';
   list : JobDetail[] | undefined;
    
   

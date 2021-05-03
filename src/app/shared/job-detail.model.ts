@@ -1,9 +1,8 @@
 export class JobDetail {
     jobDetailId: number=0;
-    name: string='';    
-    description: string='';
+    name: string='';
     workLoad: string='';
     type: string='';
-    company : string='';  
-    
+    company : string=''; 
+    description: string='';     
 }
